@@ -15,6 +15,7 @@
 
     1. Custom Scrollbar
 	2. Body and Core Css
+        2.1 Tooltip - hover over icon
 	3. Home Section
         3.1 Full Menu
         3.2 Header
@@ -30,7 +31,7 @@
 ====================================================*/
 
 
-/*--------- Custom Scrollbar-----------------------*/
+/*--------- 1. Custom Scrollbar-----------------------*/
 
 ::-webkit-scrollbar {
     width: 20px;
@@ -52,7 +53,7 @@
     background-color: #404040;
   }
 
-/*------------------------ 1 Body and Core Css ------------------------*/
+/*------------------------ 2 Body and Core Css ------------------------*/
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -223,8 +224,175 @@ blockquote {
     padding-bottom: 200px;
 }
 
+/* ----  2.1 Tooltip - text on hover icons --------------------*/
 
-/*------------------------ 2 Home ------------------------*/
+
+[data-tooltip] {
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* Positioning and visibility settings of the tooltip */
+  [data-tooltip]:before,
+  [data-tooltip]:after {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    left: 50%;
+    bottom: calc(100% + 2px); /* 5px is the size of the arrow */
+    pointer-events: none;
+    transition: 0.2s;
+    will-change: transform;
+  }
+  
+  /* The actual tooltip with a dynamic width */
+  [data-tooltip]:before {
+    content: attr(data-tooltip);
+    padding: 10px 18px;
+    min-width: 20px;
+    max-width: 300px;
+    width: max-content;
+    width: -moz-max-content;
+    border-radius: 6px;
+    font-size: 12px;
+    background-color: rgba(59, 72, 80, 0.9);
+    background-image: linear-gradient(30deg,
+      rgba(59, 72, 80, 0.44),
+      rgba(59, 68, 75, 0.44),
+      rgba(60, 82, 88, 0.44));
+    box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-align: center;
+    white-space: pre-wrap;
+    transform: translate(-50%, -5px) scale(0.5);
+  }
+  
+  /* Tooltip arrow */
+  [data-tooltip]:after {
+    content: '';
+    border-style: solid;
+    border-width: 5px 5px 0px 5px; /* CSS triangle */
+    border-color: rgba(55, 64, 70, 0.9) transparent transparent transparent;
+    transition-duration: 0s; /* If the mouse leaves the element, 
+                                the transition effects for the 
+                                tooltip arrow are "turned off" */
+    transform-origin: top;   /* Orientation setting for the
+                                slide-down effect */
+    transform: translateX(-50%) scaleY(0);
+  }
+  
+  /* Tooltip becomes visible at hover */
+  [data-tooltip]:hover:before,
+  [data-tooltip]:hover:after {
+    visibility: visible;
+    opacity: 1;
+  }
+  /* Scales from 0.5 to 1 -> grow effect */
+  [data-tooltip]:hover:before {
+    transition-delay: 0.3s;
+    transform: translate(-50%, -5px) scale(1);
+  }
+  /* 
+    Arrow slide down effect only on mouseenter (NOT on mouseleave)
+  */
+  [data-tooltip]:hover:after {
+    transition-delay: 0.5s; /* Starting after the grow effect */
+    transition-duration: 0.2s;
+    transform: translateX(-50%) scaleY(1);
+  }
+  /*
+    That's it.
+  */
+  
+  
+  
+  
+  
+  
+  /*
+    If you want some adjustability
+    here are some orientation settings you can use:
+  */
+  
+  /* LEFT */
+  /* Tooltip + arrow */
+  [data-tooltip-location="left"]:before,
+  [data-tooltip-location="left"]:after {
+    left: auto;
+    right: calc(100% + 5px);
+    bottom: 50%;
+  }
+  
+  /* Tooltip */
+  [data-tooltip-location="left"]:before {
+    transform: translate(-5px, 50%) scale(0.5);
+  }
+  [data-tooltip-location="left"]:hover:before {
+    transform: translate(-5px, 50%) scale(1);
+  }
+  
+  /* Arrow */
+  [data-tooltip-location="left"]:after {
+    border-width: 5px 0px 5px 5px;
+    border-color: transparent transparent transparent rgba(55, 64, 70, 0.9);
+    transform-origin: left;
+    transform: translateY(50%) scaleX(0);
+  }
+  [data-tooltip-location="left"]:hover:after {
+    transform: translateY(50%) scaleX(1);
+  }
+  
+  
+  
+  /* RIGHT */
+  [data-tooltip-location="right"]:before,
+  [data-tooltip-location="right"]:after {
+    left: calc(100% + 5px);
+    bottom: 50%;
+  }
+  
+  [data-tooltip-location="right"]:before {
+    transform: translate(5px, 50%) scale(0.5);
+  }
+  [data-tooltip-location="right"]:hover:before {
+    transform: translate(5px, 50%) scale(1);
+  }
+  
+  [data-tooltip-location="right"]:after {
+    border-width: 5px 5px 5px 0px;
+    border-color: transparent rgba(55, 64, 70, 0.9) transparent transparent;
+    transform-origin: right;
+    transform: translateY(50%) scaleX(0);
+  }
+  [data-tooltip-location="right"]:hover:after {
+    transform: translateY(50%) scaleX(1);
+  }
+  
+  
+  
+  /* BOTTOM */
+  [data-tooltip-location="bottom"]:before,
+  [data-tooltip-location="bottom"]:after {
+    top: calc(100% + 5px);
+    bottom: auto;
+  }
+  
+  [data-tooltip-location="bottom"]:before {
+    transform: translate(-50%, 5px) scale(0.5);
+  }
+  [data-tooltip-location="bottom"]:hover:before {
+    transform: translate(-50%, 5px) scale(1);
+  }
+  
+  [data-tooltip-location="bottom"]:after {
+    border-width: 0px 5px 5px 5px;
+    border-color: transparent transparent rgba(55, 64, 70, 0.9) transparent;
+    transform-origin: bottom;
+  }
+  
+  
+
+/*------------------------ 3 Home ------------------------*/
 
 #home-video{
  position: absolute;
@@ -377,7 +545,7 @@ blockquote {
 
 
 
-/*------------------------ 2.1 Full Menu ------------------------*/
+/*------------------------ 3.1 Full Menu ------------------------*/
 
 .full-menu {
     position: fixed;
@@ -653,7 +821,7 @@ blockquote {
 }
 
 
-/*------------------------ 2.2 Header ------------------------*/
+/*------------------------ 3.2 Header ------------------------*/
 
 .full-menu .fullmenu-content {
     height: 100%;
@@ -828,7 +996,7 @@ header {
 
 
 
-/*------------------------ 2.3 Portfolio Content ------------------------*/
+/*------------------------ 3.3 Portfolio Content ------------------------*/
 
 .content {
     margin-top: 90px;
@@ -1075,7 +1243,7 @@ header {
 
 
 
-/*------------------------ 3 About ------------------------*/
+/*------------------------ 4 About ------------------------*/
 
 .page-title {
     text-align: center;
@@ -1247,16 +1415,16 @@ header {
     -webkit-transition: all ease 0.6s;
 }
 
-/*------------------------ 3.1 xxx ------------------------*/
+/*------------------------ 4.1 xxx ------------------------*/
 
 
-/*------------------------ 3.2 yyy ------------------------*/
+/*------------------------ 4.2 yyy ------------------------*/
 
 
-/*------------------------ 3.3 zzz ------------------------*/
+/*------------------------ 4.3 zzz ------------------------*/
 
 
-/*------------------------ 4 Blog Page ------------------------*/
+/*------------------------ 5 Blog Page ------------------------*/
 
 .blog-post figure img {
     width: 100%;
@@ -1559,7 +1727,7 @@ header {
 }
 
 
-/*------------------------ 5 Footer ------------------------*/
+/*------------------------ 6 Footer ------------------------*/
 
 footer {
     background: #272727;
@@ -1609,7 +1777,7 @@ footer p {
 }
 
 
-/*------------------------ 6 Responsive ------------------------*/
+/*------------------------ 7 Responsive ------------------------*/
 
 @media only screen and (min-width: 1201px) {
 
