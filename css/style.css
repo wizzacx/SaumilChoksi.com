@@ -1899,7 +1899,8 @@ footer p {
     }
 
     .main {
-        background: url(../img/person-bg.jpg) no-repeat right;
+        /*background: url(../img/person-bg.jpg) no-repeat right; */
+        background: #000;
         background-size: cover;
     }
 
@@ -1915,6 +1916,10 @@ footer p {
     
     
     header{
+        background: #000;
+    }
+
+    body{
         background: #000;
     }
 
@@ -2074,9 +2079,9 @@ footer p {
         display: inline;
     }
 
-    .main-title {
-        font-size: 17px;
-    }
+    /* .main-title {
+        font-size:initial;
+    }*/
 
 
 }
