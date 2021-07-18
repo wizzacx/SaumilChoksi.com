@@ -389,6 +389,24 @@ blockquote {
     border-color: transparent transparent rgba(55, 64, 70, 0.9) transparent;
     transform-origin: bottom;
   }
+
+/*----------------- Logo Shadowing --------------------*/
+.clogo img{
+    -webkit-filter: drop-shadow(6px 6px 8px #fff );
+    filter: drop-shadow(6px 6px 8px #222);
+    padding:20px;  
+    transition:.5s;
+    /*max-height:250px;
+    height:10vw;*/
+    z-index: 10;
+    
+  }
+.clogo img:hover{
+    transform:scale(1.05);  
+    -webkit-filter: drop-shadow(7px 7px 10px #0161ee);
+    filter: drop-shadow(7px 7px 15px #0161ee);
+    z-index: 9;
+  }
   
   
 
