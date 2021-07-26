@@ -2147,3 +2147,40 @@ footer p {
     }
     
 }
+
+@media screen and (max-width: 429px) {
+    .services .service {
+        margin-bottom: 60px;
+        padding: 0 75px;
+    }
+    
+    
+    .about-text {
+        font-size: 15px;
+        line-height: 33px;
+    }
+    
+    .testimonials .item p {
+        font-size: 13px;
+        line-height: 26px;
+    }
+    
+    p {
+    line-height: 28px;
+    font-size: 14px;
+}
+
+    .portfolio_filter{
+        height: 120%;
+    }
+
+    .main-content .main-title{
+        font-size: 160%;
+        white-space: nowrap;
+    }
+
+    .hello{
+        font-size: 5vw;
+    }
+    
+}
