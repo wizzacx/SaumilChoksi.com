@@ -468,7 +468,7 @@ blockquote {
 }
 
 .main-title {
-    font-size: 60px;
+    font-size: 360%;
     line-height: 95px;
     color: #fff;
     font-weight: 400;
@@ -477,7 +477,7 @@ blockquote {
 .hello {
     color: #0161ee;
     line-height: 51px;
-    font-size: 24px;
+    font-size: 24px ;
     font-weight: lighter;
 }
 
@@ -561,6 +561,13 @@ blockquote {
 
 .language a:last-child {
     margin-right: 0px;
+}
+
+.footermail {
+    color: #0161ee;
+    line-height: 51px;
+    font-size: 100% ;
+    font-weight: lighter;
 }
 
 
@@ -1933,8 +1940,7 @@ footer p {
 
 
 @media (max-width: 768px) {
-    
-    
+
     header{
         background: #000;
     }
@@ -2130,6 +2136,14 @@ footer p {
 
     .portfolio_filter{
         height: 120%;
+    }
+
+    .main-content .main-title{
+        font-size: 260%;
+    }
+
+    .hello{
+        font-size: 5vw;
     }
     
 }
