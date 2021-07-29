@@ -1303,6 +1303,19 @@ header {
     color: #212121;
 }
 
+.page-title-2 {
+    text-align: center;
+    padding-top: 50px;
+    display: block;
+}
+
+.page-title-2 .title {
+    font-size: 28px;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+}
+
 .page-title-2 span {
     font-size: 82px;
     font-weight: 700;
